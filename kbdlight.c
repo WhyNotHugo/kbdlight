@@ -34,9 +34,9 @@ int main(int argc, char* argv[]) {
   }
 
   if (!strcmp(argv[1], "up"))
-    next = current + 16;
+    next = current >= maxval-16 ? maxval : current + 16;
   else if (!strcmp(argv[1], "down"))
-    next = current - 16;
+    next = current <= 16 ? 0 : current - 16;
   else if (!strcmp(argv[1], "off"))
     next = 0;
   else if (!strcmp(argv[1], "max"))

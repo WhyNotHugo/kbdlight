@@ -7,7 +7,7 @@
 #define BLMAXFILE	BLPATH "/max_brightness"
 
 void usage() {
-    printf("Usage: kbdlight [up|down|off|max]\n");
+    printf("Usage: kbdlight [up|down|off|max|get|set <value>]\n");
     exit(0);
 }
 

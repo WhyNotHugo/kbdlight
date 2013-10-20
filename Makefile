@@ -1,6 +1,19 @@
-all:
-	gcc kbdlight.c -o kbdlight
+PREFIX = /usr/local
+
+obj = kbdlight.o
+bin = kbdlight
+
+$(bin): $(obj)
+	$(CC) -o $@ $(obj) $(LDFLAGS)
+
+.PHONY: clean
 clean:
-	rm kbdlight
+	rm -f $(obj) $(bin)
+
+.PHONY: install
 install:
-	install -Dm 4755 kbdlight ${DESTDIR}/usr/bin/kbdlight
+	install -Dm 4755 $(bin) $(DESTDIR)$(PREFIX)/bin/$(bin)
+
+.PHONY: uninstall
+uninstall:
+	rm -f $(DESTDIR)$(PREFIX)/bin/$(bin)

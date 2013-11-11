@@ -4,7 +4,7 @@ obj = kbdlight.o
 bin = kbdlight
 
 $(bin): $(obj)
-	$(CC) -o $@ $(obj) $(LDFLAGS)
+	$(CXX) -ggdb -std=c++0x -o $@ $(obj) $(LDFLAGS)
 
 .PHONY: clean
 clean:

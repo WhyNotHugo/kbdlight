@@ -5,6 +5,7 @@
 #define BLPATH		"/sys/class/leds/smc::kbd_backlight"
 #define BLVALFILE	BLPATH "/brightness"
 #define BLMAXFILE	BLPATH "/max_brightness"
+#define BLCHANGE	16
 
 void usage() {
     printf("Usage: kbdlight [up|down|off|max|get|set <value>]\n");
@@ -34,9 +35,9 @@ int main(int argc, char* argv[]) {
   }
 
   if (!strcmp(argv[1], "up"))
-    next = current >= maxval-16 ? maxval : current + 16;
+    next = current >= maxval-BLCHANGE ? maxval : current + BLCHANGE;
   else if (!strcmp(argv[1], "down"))
-    next = current <= 16 ? 0 : current - 16;
+    next = current <= BLCHANGE ? 0 : current - BLCHANGE;
   else if (!strcmp(argv[1], "off"))
     next = 0;
   else if (!strcmp(argv[1], "max"))

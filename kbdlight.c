@@ -58,7 +58,7 @@ int main(int argc, char* argv[]) {
   else if (!strcmp(argv[1], "off"))
     next = 0;
   else if (!strcmp(argv[1], "max"))
-    next = 255;
+    next = maxval;
   else if (!strcmp(argv[1], "set")) {
     char *endp;
     if(!argv[2] || (next = strtol(argv[2], &endp, 10), endp == argv[2])) {

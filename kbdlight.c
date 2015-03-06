@@ -8,12 +8,12 @@
 #define BLCHANGE	16
 
 void usage() {
-    printf("Usage: kbdlight [up|down|off|max|get|set <value>]\n");
+    printf("Usage: kbdlight [up [<percentage>]|down [<percentage>]|off|max|get|set <value>]\n");
     exit(0);
 }
 
 int main(int argc, char* argv[]) {
-  int current, next, maxval;
+  int current, change, next, maxval;
   FILE *file;
 
   if (argc < 2) {
@@ -34,10 +34,27 @@ int main(int argc, char* argv[]) {
     maxval = 255;
   }
 
+  if (!strcmp(argv[1], "up") || !strcmp(argv[1], "down")) {
+    if (argv[2]) {
+      char *endp;
+
+      change = strtol(argv[2], &endp, 10);
+
+      if (endp == argv[2]) {
+        fprintf(stderr, "percentage must be a number from 0 to 100\n");
+        return 1;
+      }
+
+      change = change * 0.01 * maxval;
+    } else {
+      change = BLCHANGE;
+    }
+  }
+
   if (!strcmp(argv[1], "up"))
-    next = current >= maxval-BLCHANGE ? maxval : current + BLCHANGE;
+    next = current >= maxval - change ? maxval : current + change;
   else if (!strcmp(argv[1], "down"))
-    next = current <= BLCHANGE ? 0 : current - BLCHANGE;
+    next = current <= change ? 0 : current - change;
   else if (!strcmp(argv[1], "off"))
     next = 0;
   else if (!strcmp(argv[1], "max"))

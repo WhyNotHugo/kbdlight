@@ -17,5 +17,12 @@ Usage is quite simple:
 `value` should be an integer between 0 the maximum brightness value (usually
 255, but this *may* vary).
 
-Copyright (c) 2013-2015, Hugo Osvaldo Barrera <hugo@barrera.io> and
+Project status
+--------------
+
+This project is finshed. It works, and hasn't had any issues in years. Since I
+no longer have a MacBook, I can no longer accurately test this either. If it's
+broken, you're welcome to maintain this package.
+
+Copyright (c) 2013-2020, Hugo Osvaldo Barrera <hugo@barrera.io> and
 contributors. See LICENCE for details.

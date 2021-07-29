@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 #define BLPATH		"/sys/class/leds/smc::kbd_backlight"
 #define BLVALFILE	BLPATH "/brightness"
@@ -8,7 +9,7 @@
 #define BLCHANGE	16
 
 void usage() {
-    printf("Usage: kbdlight [up [<percentage>]|down [<percentage>]|off|max|get|set <value>]\n");
+    printf("Usage: kbdlight [up [<percentage>]|down [<percentage>]|off|max|get|getp|set <value>]\n");
     exit(0);
 }
 
@@ -67,6 +68,10 @@ int main(int argc, char* argv[]) {
     }
   } else if(!strcmp(argv[1], "get")) {
     printf("%d\n", current);
+    return 0;
+  } else if(!strcmp(argv[1], "getp")) {
+    float percentage = current * 100 / 255;
+    printf("%.f\n", percentage);
     return 0;
   } else
     usage();

@@ -11,8 +11,9 @@ Usage
 -----
 Usage is quite simple:
 
-    kbdlight up [<percentage>]|down [<percentage>]|off|max|get|set <value>
+    kbdlight up [<percentage>]|down [<percentage>]|off|max|get|getp|set <value>
 
+`getp` returns the percentage of brightness for the value.
 `percentage` should be an integer between 0 and 100.
 `value` should be an integer between 0 the maximum brightness value (usually
 255, but this *may* vary).

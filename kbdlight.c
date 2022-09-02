@@ -70,7 +70,7 @@ int main(int argc, char* argv[]) {
     printf("%d\n", current);
     return 0;
   } else if(!strcmp(argv[1], "getp")) {
-    float percentage = round((float)current / 255 * 100.0);
+    float percentage = current * 100 / 255;
     printf("%.f\n", percentage);
     return 0;
   } else

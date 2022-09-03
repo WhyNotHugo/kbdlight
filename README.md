@@ -1,7 +1,7 @@
 Kbdlight
 ========
 
-kbdlight is very simple application that changes MacBooks' keyboard
+kbdlight is very simple application that changes MacBooks'(<=10.13) keyboard
 backlight level.
 
 While usable standalone, the main goal is for it to be used by other
